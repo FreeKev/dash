@@ -2,7 +2,17 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              color: '#F05454',
+            },
+          },
+        },
+      },
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -16,5 +26,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
