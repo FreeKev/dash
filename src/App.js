@@ -1,11 +1,13 @@
 import Card from "./Components/Card";
+import Clock from "./Components/Clock";
 
 function App() {
   return (
-    <div>
+    <div className="bg-dark" style={{ height: '100vh', width: '100vw' }}>
       <Card>
         My Dashboard
       </Card>
+      <Clock />
     </div>
   );
 }
