@@ -1,5 +1,6 @@
 import Card from "./Components/Card";
 import Clock from "./Components/Clock";
+import Weather from "./Components/Weather";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         My Dashboard
       </Card>
       <Clock />
+      <Weather />
     </div>
   );
 }

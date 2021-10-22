@@ -53,6 +53,8 @@ export default function Clock() {
             </svg>
             <div className="h-full w-full text-white">
                     {time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                    <br />
+                    {String(time.getMonth() + 1).padStart(2, '0') + '/' + String(time.getDate()).padStart(2, '0')}
             </div>
         </div>
     )
