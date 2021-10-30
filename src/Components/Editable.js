@@ -3,6 +3,7 @@ import { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import useLocalStorage from 'react-use-localstorage'
 import Card from './Card'
+import rehypeRaw from 'rehype-raw'
 
 export default function Editable({ name }) {
 
@@ -35,7 +36,7 @@ export default function Editable({ name }) {
                     </div>
                 :
                 <div className="prose text-darkblue">
-                    <ReactMarkdown children={item} />
+                    <ReactMarkdown rehypePlugins={[rehypeRaw]} children={item} />
                 </div>
                 }
             </div>
