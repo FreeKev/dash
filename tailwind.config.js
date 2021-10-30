@@ -9,6 +9,21 @@ module.exports = {
             h1: {
               color: '#F05454',
             },
+            h2: {
+              color: '#F05454',
+            },
+            h3: {
+              color: '#F05454',
+            },
+            p: {
+              fontWeight: '400',
+              lineHeight: '1.5em'
+            },
+            li: {
+              marginTop: '0.15em',
+              marginBottom: '0.15em',
+              fontWeight: '400'
+            }
           },
         },
       },

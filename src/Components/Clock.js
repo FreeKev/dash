@@ -20,7 +20,7 @@ export default function Clock() {
 
 
     return (
-        <div className="absolute flex flex-1 justify-center h-full w-full">
+        <div className="flex flex-1 justify-center h-full w-full relative">
             <div className="svg-container absolute flex flex-1 justify-center h-full w-full">
                 <svg xmlnsXlink="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
                     <title>Animating Clock</title>
@@ -53,8 +53,7 @@ export default function Clock() {
                     </text>
                 </svg>
             </div>
-            {/* style={{ cursor: 'none' }} */}
-            <div className="absolute flex flex-1 justify-center h-full w-full items-center font-bold text-center text-darkred" style={{ fontSize: 77 }}>
+            <div className="absolute flex flex-1 justify-center h-full w-full items-center font-bold text-center text-darkred" style={{ fontSize: 30, cursor: 'none' }}>
                     {time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                     <br />
                     {String(time.getMonth() + 1).padStart(2, '0') + '/' + String(time.getDate()).padStart(2, '0')}

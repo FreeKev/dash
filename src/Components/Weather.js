@@ -14,18 +14,13 @@ export default function Weather() {
         fetch(`${REACT_APP_WEATHERAPI}${REACT_APP_WEATHERAPIKEY}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 setTemp(getFar(data.main.temp))
-                setHight(getFar(data.main.temp_max))
-                setLowt(getFar(data.main.temp_min))
                 setWeatherdescription(`${data.weather[0].main}: ${data.weather[0].description}`)
                 setWeatherimageurl(returnIcon(data.weather[0].icon))
             });
     }
 
     const [temp, setTemp] = useState()
-    const [hight, setHight] = useState()
-    const [lowt, setLowt] = useState()
     const [weatherdescription, setWeatherdescription] = useState('')
     const [weatherimageurl, setWeatherimageurl] = useState('')
 
@@ -38,18 +33,21 @@ export default function Weather() {
     });
 
     return (
-        <div className="text-white text-xl" style={{
-                padding: '2em',
-                fontWeight: 'bold',
-                display: 'flex',
-                alignItems: 'flex-start',
-                justifyContent: 'flex-end',
-                textAlign: 'right' 
-            }}>
-            <img src={weatherimageurl} alt="weather image" />
-            {temp}°<br />
-            {lowt}-{hight}°<br />
-            {weatherdescription}
-        </div>
+        <>
+        {temp &&
+            <div className="text-white text-xl" style={{
+                    padding: '2em',
+                    fontWeight: 'bold',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-end',
+                    textAlign: 'right' 
+                }}>
+                <img src={weatherimageurl} alt="current temp" />
+                {temp}°<br />
+                {weatherdescription}
+            </div>
+        }
+        </>
     )
 }

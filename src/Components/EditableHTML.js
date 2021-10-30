@@ -1,10 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
-import ReactMarkdown from 'react-markdown'
 import useLocalStorage from 'react-use-localstorage'
 import Card from './Card'
 
-export default function Editable({ name }) {
+export default function EditableHTML({ name }) {
 
     const [isediting, setIsediting] = useState(false)
     const [item, setItem] = useLocalStorage(name, '# Yada');
@@ -17,26 +16,25 @@ export default function Editable({ name }) {
         setIsediting(false)
     }
 
+    function createMarkup(item) { return {__html: item }; };
+
     return (
         <Card>
             <div onDoubleClick={switchtoediting}>
                 {isediting ?
-                    <div className="flex flex-col">
-                        <label className="flex flex-col">
-                            Content:{' '}
+                    <>
+                        <label>
+                            HTML:{' '}
                             <textarea
                             type="text"
-                            placeholder="Enter your content"
                             value={item}
                             onChange={(e) => setItem(e.target.value)}
                             />
                         </label>
                         <button onClick={switchtodisplay}>Done</button>
-                    </div>
+                    </>
                 :
-                <div className="prose text-darkblue">
-                    <ReactMarkdown children={item} />
-                </div>
+                <div className="prose text-darkblue" dangerouslySetInnerHTML={createMarkup(item)} />
                 }
             </div>
         </Card>

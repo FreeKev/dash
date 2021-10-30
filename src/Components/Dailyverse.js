@@ -28,8 +28,8 @@ export default function Dailyverse() {
 
     return (
         <Card>
-            <h2 className="text-darkred text-5xl">{reference}</h2>
-            <p className="font-normal">{verse}</p>
+            <h2 className="text-darkred text-2xl">{reference}</h2>
+            <p className="font-normal" style={{ fontWeight: '400', lineHeight: '1.5em' }}>{verse}</p>
         </Card>
     )
 }
